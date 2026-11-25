@@ -1,0 +1,70 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-sans: "DM Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  --color-canvas: #F8F8F6;
+  --color-surface: #FFFFFF;
+  --color-hairline: #E5E5E0;
+  --color-ink: #18181B;
+  --color-muted: #64748B;
+  --color-clinic: #0F766E;
+  --color-clinic-hover: #115E59;
+}
+
+@layer base {
+  html {
+    font-family: var(--font-sans);
+    scroll-behavior: smooth;
+    background-color: var(--color-canvas);
+    color: var(--color-ink);
+  }
+
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+  }
+}
+
+@keyframes rowFlashBooked {
+  0% {
+    background-color: rgba(15, 118, 110, 0.16);
+  }
+  70% {
+    background-color: rgba(15, 118, 110, 0.08);
+  }
+  100% {
+    background-color: transparent;
+  }
+}
+
+@keyframes rowFlashCancelled {
+  0% {
+    background-color: rgba(185, 28, 28, 0.14);
+  }
+  70% {
+    background-color: rgba(185, 28, 28, 0.06);
+  }
+  100% {
+    background-color: transparent;
+  }
+}
+
+.animate-row-booked {
+  animation: rowFlashBooked 2.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-row-cancelled {
+  animation: rowFlashCancelled 2.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .animate-row-booked,
+  .animate-row-cancelled {
+    animation: none;
+  }
+}

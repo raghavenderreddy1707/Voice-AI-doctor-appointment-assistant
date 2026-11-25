@@ -1,0 +1,6 @@
+{
+  "name": "Meridian Clinic Voice Assistant",
+  "description": "Voice AI doctor appointment booking assistant and live clinic scheduling dashboard.",
+  "requestFramePermissions": ["microphone"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
